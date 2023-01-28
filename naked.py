@@ -33,6 +33,12 @@ try:
 
 	nasa_api_key = config.get('nasa', 'api_key')
 	nasa_api_url = config.get('nasa', 'api_url')
+	
+	mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
+	mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
+	mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
+	mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
+	
 except:
 	logger.execution('')
 logger.info('DONE')
@@ -88,6 +94,11 @@ def push_asteroids_arrays_to_db(request_day, ast_array, hazardous):
 			logger.debug("Asteroid already IN DB")
 
 if __name__ == "__main__":
+	
+	connection = None
+	connected = False
+
+	init_db()
 
 # Getting todays date
 	dt = datetime.now()
