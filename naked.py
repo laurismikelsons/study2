@@ -5,9 +5,11 @@ import time
 import yaml
 import logging
 import logging.config
+import mysql.connector
 
 from datetime import datetime
 from configparser import ConfigParser
+from mysql.connector import Error
 
 #
 with open('./log_worker.yaml', 'r') as stream:
