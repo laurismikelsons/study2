@@ -218,6 +218,6 @@ if __name__ == "__main__":
 			logger.info("No asteroids close passing earth today")
 		if len(ast_safe) > 0:
 			push_asteroids_arrays_to_db(request_date, ast_safe, 0)
-
+		logger.info("priekš log uzdevuma")
 	else:
 		logger.error("Unable to get response from API. Response code: " + str(r.status_code) + " | content: " + str(r.text))
